@@ -6,11 +6,11 @@
 /*   By: tiskow <tiskow@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 05:02:46 by tiskow            #+#    #+#             */
-/*   Updated: 2016/11/21 07:44:26 by tiskow           ###   ########.fr       */
+/*   Updated: 2016/11/21 08:37:09 by tiskow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
+#include "../includes/fillit.h"
 
 int		main(int ac, char **ag)
 {

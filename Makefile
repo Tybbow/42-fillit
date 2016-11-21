@@ -6,7 +6,7 @@
 #    By: tiskow <tiskow@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/07 12:35:17 by tiskow            #+#    #+#              #
-#    Updated: 2016/11/21 07:42:42 by tiskow           ###   ########.fr        #
+#    Updated: 2016/11/21 08:40:33 by tiskow           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,9 +23,8 @@ ft_isascii.c ft_memccpy.c ft_putnbr.c ft_strequ.c ft_strnew.c \
 ft_isdigit.c ft_memchr.c ft_putnbr_fd.c ft_striter.c ft_strnstr.c \
 ft_isprint.c ft_memcmp.c ft_putstr.c ft_striteri.c ft_strrchr.c \
 ft_itoa.c ft_memcpy.c ft_putstr_fd.c ft_strjoin.c ft_strsplit.c 
-FISRCS = ft_display.c ft_check.c
-MAIN = fillit.c
-OBJS	= $(patsubst %.c,lib/%.o,$(FTSRCS)) $(patsubst %.c,srcs/%.o,$(FISRCS)) $(patsubst %.c,%.o,$(MAIN))
+FISRCS = fillit.c ft_display.c ft_check.c
+OBJS	= $(patsubst %.c,lib/%.o,$(FTSRCS)) $(patsubst %.c,srcs/%.o,$(FISRCS))
 HEADER = -I ./includes/
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
