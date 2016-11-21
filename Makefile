@@ -6,7 +6,7 @@
 #    By: tiskow <tiskow@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/07 12:35:17 by tiskow            #+#    #+#              #
-#    Updated: 2016/11/21 08:40:33 by tiskow           ###   ########.fr        #
+#    Updated: 2016/11/21 08:45:54 by tiskow           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,14 +35,15 @@ ARQ = ar -q
 $(NAME): $(OBJS)
 	@($(CC) $(CFLAGS) $(HEADERS) -o $@ $^)
 	@echo "----------------------------------"
-	@echo "[\033[32m✔\033[0m] Compilation $@ has finish"
+	@echo "[\033[32m✔\033[0m] Compilation  of $@ has finish."
+	@echo "Fillit : v1.0 - By lchety && tiskow - 2016."
 	@echo "----------------------------------"
 
 all: $(NAME)
 
 %.o: %.c
 	@($(CC) -c $(CFLAGS) $(HEADERS) -o $@ $^)
-	@echo "\033[0m[\033[32m✔\033[0m] Function : $@ \033[0m"
+	@echo "\033[0m[\033[32m✔\033[0m] $@ \033[0m"
 
 clean:
 	@(rm -rf $(OBJS))
