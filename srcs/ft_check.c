@@ -6,7 +6,7 @@
 /*   By: tiskow <tiskow@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 07:33:27 by tiskow            #+#    #+#             */
-/*   Updated: 2016/11/25 00:56:05 by tiskow           ###   ########.fr       */
+/*   Updated: 2016/11/25 02:03:53 by tiskow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		ft_cline(char *str)
 	{
 		if (ft_strclen(&str[i], '\n') == 4)
 			count++;
-		i++;
+		i = i + 5;
 	}
 	if (count == 4)
 		return (1);
