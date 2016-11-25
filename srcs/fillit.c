@@ -6,7 +6,7 @@
 /*   By: tiskow <tiskow@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 05:02:46 by tiskow            #+#    #+#             */
-/*   Updated: 2016/11/21 08:37:09 by tiskow           ###   ########.fr       */
+/*   Updated: 2016/11/23 06:59:11 by tiskow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int		main(int ac, char **ag)
 		{
 			ret = read(fd, tmp, 511);
 			close(fd);
-			ft_putstr(tmp);
 			if (!ft_check(tmp))
 				ft_error();
 		}
