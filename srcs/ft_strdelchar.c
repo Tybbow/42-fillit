@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_string.c                                        :+:      :+:    :+:   */
+/*   ft_strdelchar.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tiskow <tiskow@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 09:33:13 by tiskow            #+#    #+#             */
-/*   Updated: 2016/11/27 04:24:07 by tiskow           ###   ########.fr       */
+/*   Updated: 2016/11/29 05:35:10 by tiskow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,18 +38,4 @@ char	*ft_strdelchar(char *str, char replace)
 	ft_strcpy(str, tmp);
 	free(tmp);
 	return (str);
-}
-
-int		ft_invstrchr(char *str, char c1, char c2)
-{
-	int i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (!(str[i] == c1 || str[i] == c2 || str[i] == '\n'))
-			return (0);
-		i++;
-	}
-	return (i);
 }

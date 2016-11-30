@@ -1,35 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.c                                           :+:      :+:    :+:   */
+/*   ft_bddalgo.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tiskow <tiskow@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/21 05:02:46 by tiskow            #+#    #+#             */
-/*   Updated: 2016/11/29 12:03:19 by tiskow           ###   ########.fr       */
+/*   Created: 2016/11/29 13:18:54 by tiskow            #+#    #+#             */
+/*   Updated: 2016/11/30 06:46:28 by tiskow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fillit.h"
 
-int		main(int ac, char **ag)
+char	ft_bddalgo(char *str)
 {
-	int fd;
-	int ret;
-	char tmp[512];
-	t_list *tetriminos;
-	
-	if (ac != 2)
-		ft_usage();
-	else
+	int i;
+	int n;
+
+	n = 1;
+	i = 1;
+	ft_putstr(str);
+	ft_putchar(10);
+	while (str[i])
 	{
-		fd = open(ag[1], O_RDONLY);
-		if (fd != -1)
+		if (str[i] == '#')
 		{
-			ret = read(fd, tmp, 511);
-			close(fd);
-			tetriminos = ft_newlist(tmp, ft_parsefile(tmp, 4, 5, 0) / 21);
+			ft_putnbr(i);
+			ft_putstr(" : ");
+			ft_putnbr(n);
+			ft_putchar(10);
+			n = 0;
 		}
+		n++;
+		i++;
 	}
-	return (0);
+	return (1);
 }

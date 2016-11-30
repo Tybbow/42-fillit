@@ -6,7 +6,7 @@
 /*   By: tiskow <tiskow@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 05:10:17 by tiskow            #+#    #+#             */
-/*   Updated: 2016/11/23 08:39:41 by tiskow           ###   ########.fr       */
+/*   Updated: 2016/11/30 05:51:24 by tiskow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ typedef struct f_list	f_list;
 void			ft_usage();
 void			ft_error();
 char			*ft_strdelchar(char *str, char replace);
-char			*ft_check(char *str);
-char			*ft_findtetriminos(char *str);
+t_list			*ft_newlist(char *file, size_t len);
+size_t			ft_parsefile(char *file, size_t len, size_t wid, size_t n);
 int				ft_invstrchr(char *str, char c1, char c2);
+char			ft_bddalgo(char *str);
 #endif
