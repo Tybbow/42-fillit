@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse.c                                         :+:      :+:    :+:   */
+/*   ft_parsefile.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tiskow <tiskow@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 07:33:27 by tiskow            #+#    #+#             */
-/*   Updated: 2016/11/29 10:57:28 by tiskow           ###   ########.fr       */
+/*   Updated: 2016/12/01 05:18:58 by tiskow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,7 @@ size_t		ft_parsefile(char *file, size_t len, size_t wid, size_t n)
 		if (file[i] != '\n' && file[i] != 0)
 			return (0);
 		i++;
-		ft_strclr(tmp);
 	}
 	free(tmp);
-	return (i);
+	return (len);
 }
