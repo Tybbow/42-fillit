@@ -6,7 +6,7 @@
 /*   By: tiskow <tiskow@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 05:02:46 by tiskow            #+#    #+#             */
-/*   Updated: 2016/12/01 10:29:31 by tiskow           ###   ########.fr       */
+/*   Updated: 2016/12/05 02:05:41 by tiskow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		main(int ac, char **ag)
 	t_list *tetriminos;
 	
 	if (ac != 2)
-		ft_usage();
+		return(ft_usage());
 	else	
 	{
 		fd = open(ag[1], O_RDONLY);
@@ -32,6 +32,8 @@ int		main(int ac, char **ag)
 			if (!tetriminos)
 				return (ft_error());
 		}
+		else
+			return (ft_usage());
 	}
 	return (0);
 }

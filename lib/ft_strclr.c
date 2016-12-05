@@ -6,7 +6,7 @@
 /*   By: tiskow <tiskow@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 05:07:56 by tiskow            #+#    #+#             */
-/*   Updated: 2016/11/21 04:58:12 by tiskow           ###   ########.fr       */
+/*   Updated: 2016/11/24 23:49:49 by tiskow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 void	ft_strclr(char *s)
 {
-	ft_bzero(s, ft_strlen(s) + 1);
+	if (s)
+		ft_bzero(s, ft_strlen(s) + 1);
 }

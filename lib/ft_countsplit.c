@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_countsplit.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tiskow <tiskow@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/10/10 06:21:00 by tiskow            #+#    #+#             */
-/*   Updated: 2016/11/21 01:17:03 by tiskow           ###   ########.fr       */
+/*   Created: 2016/12/03 17:17:19 by tiskow            #+#    #+#             */
+/*   Updated: 2016/12/03 17:20:03 by tiskow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+int		ft_countsplit(char const *str, char c)
 {
-	char	*tmp;
+	int count;
+	int i;
 
-	if (!s1 || !s2)
-		return (NULL);
-	tmp = ft_strnew(ft_strlen(s1) + ft_strlen(s2) + 1);
-	if (tmp)
+	count = 0;
+	i = 0;
+	while (str[i])
 	{
-		ft_strcat(tmp, s1);
-		ft_strcat(tmp, s2);
+		if (ft_strclen(&str[i], c))
+			count++;
+		i += ft_strclen(&str[i], c) ? ft_strclen(&str[i], c) : 1;
 	}
-	return (tmp);
+	return (count);
 }

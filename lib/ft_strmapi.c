@@ -6,7 +6,7 @@
 /*   By: tiskow <tiskow@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 05:42:34 by tiskow            #+#    #+#             */
-/*   Updated: 2016/11/21 04:58:02 by tiskow           ###   ########.fr       */
+/*   Updated: 2016/12/03 18:00:33 by tiskow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	int		i;
 
 	i = 0;
+	if (!s && !f)
+		return (NULL);
 	str = ft_strnew(ft_strlen(s));
 	if (!str)
 		return (NULL);

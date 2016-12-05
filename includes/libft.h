@@ -6,7 +6,7 @@
 /*   By: tiskow <tiskow@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 14:20:06 by tiskow            #+#    #+#             */
-/*   Updated: 2016/11/23 06:24:20 by tiskow           ###   ########.fr       */
+/*   Updated: 2016/12/03 17:34:08 by tiskow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ int				ft_strnequ(const char *s1, const char *s2, size_t n);
 char			*ft_strsub(char const *s, unsigned int start, size_t len);
 char			*ft_strtrim(char const *s);
 char			**ft_strsplit(char const *s, char c);
+int				ft_countsplit(char const *str, char c);
 char			*ft_itoa(int n);
 void			ft_putchar(char c);
 void			ft_putstr(const char *str);
