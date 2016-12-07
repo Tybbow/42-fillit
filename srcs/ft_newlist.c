@@ -6,7 +6,7 @@
 /*   By: tiskow <tiskow@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/29 11:32:35 by tiskow            #+#    #+#             */
-/*   Updated: 2016/12/07 01:15:51 by tiskow           ###   ########.fr       */
+/*   Updated: 2016/12/07 07:22:58 by tiskow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,12 +81,24 @@ char		*ft_bddalgo(char *str)
 
 f_list		*ft_addlist(char *str, char *tetri, f_list *tetriminos)
 {
-	while (tetriminos)
-		tetriminos = tetriminos->next;
-	tetriminos = (f_list *)malloc(sizeof(f_list));
-	tetriminos->content = str;
-	tetriminos->tetriminos = tetri;
-	tetriminos->len = ft_strlen(str);
+	f_list *tmp;
+	f_list *tmp2;
+
+	tmp = malloc(sizeof(f_list));
+	tmp->content = ft_strnew(ft_strlen(str) + 1);
+	tmp->tetriminos = ft_strnew(ft_strlen(tetri) + 1);
+	tmp->content = ft_strcpy(tmp->content, str);
+	tmp->tetriminos = ft_strcpy(tmp->tetriminos, tetri);
+	tmp->tetriminos = tetri;
+	tmp->len = ft_strlen(str);
+	tmp->next = NULL;
+
+	if (!tetriminos)
+		return (tmp);
+	tmp2 = tetriminos;
+	while(tmp2->next)
+		tmp2 = tmp2->next;
+	tmp2->next = tmp;
 	return (tetriminos);
 }
 
@@ -109,9 +121,8 @@ f_list		*ft_newlist(char *file, size_t len)
 		i++;
 		if (i % len == 0)
 		{
-			if (!ft_bddalgo(ft_strchr(tmp, '#')))
-				return (NULL);
-			newlist = ft_addlist(ft_strchr(tmp, '#'), ft_bddalgo(ft_strchr(tmp, '#')), newlist);
+			if (ft_bddalgo(ft_strchr(tmp, '#')))
+				newlist = ft_addlist(ft_strchr(tmp, '#'), ft_bddalgo(ft_strchr(tmp, '#')), newlist);
 			ft_strclr(tmp);
 		}
 	}
