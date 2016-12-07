@@ -6,7 +6,7 @@
 /*   By: tiskow <tiskow@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/29 11:32:35 by tiskow            #+#    #+#             */
-/*   Updated: 2016/12/02 00:21:47 by tiskow           ###   ########.fr       */
+/*   Updated: 2016/12/07 01:15:51 by tiskow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,13 +59,13 @@ char		*ft_bddalgo(char *str)
 	int 	i;
 	int 	n;
 	int 	count;
-	char	tmp[3];
-	char	*ptr;
+	char	*tmp;
 	
 	n = 0;
 	i = 0;
 	count = 0;
-	if (ft_countchar(str) != 3)
+	tmp = ft_strnew(4);
+	if (ft_countchar(str) != 3 && tmp)
 		return (NULL);
 	while (str[i++] && ++n)
 	{
@@ -74,17 +74,25 @@ char		*ft_bddalgo(char *str)
 		count = (str[i] == '#') ? count + 1 : count;
 		n = (str[i] == '#') ? 0 : n;
 	}
-	ptr = tmp;
-	ft_putstr(str);
-	ft_putchar(10);
 	if (ft_findtetriminos(tmp))
-		return (ptr);
+		return (tmp);
 	return (NULL);
 }
 
-t_list		*ft_newlist(char *file, size_t len)
+f_list		*ft_addlist(char *str, char *tetri, f_list *tetriminos)
 {
-	t_list 	*newlist;
+	while (tetriminos)
+		tetriminos = tetriminos->next;
+	tetriminos = (f_list *)malloc(sizeof(f_list));
+	tetriminos->content = str;
+	tetriminos->tetriminos = tetri;
+	tetriminos->len = ft_strlen(str);
+	return (tetriminos);
+}
+
+f_list		*ft_newlist(char *file, size_t len)
+{
+	f_list 	*newlist;
 	char	**darray;
 	char	tmp[16];
 	int		i;
@@ -103,8 +111,10 @@ t_list		*ft_newlist(char *file, size_t len)
 		{
 			if (!ft_bddalgo(ft_strchr(tmp, '#')))
 				return (NULL);
+			newlist = ft_addlist(ft_strchr(tmp, '#'), ft_bddalgo(ft_strchr(tmp, '#')), newlist);
 			ft_strclr(tmp);
 		}
 	}
+	ft_strdel(darray);
 	return (newlist);
 }
