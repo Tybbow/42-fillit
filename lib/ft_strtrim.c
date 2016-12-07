@@ -6,7 +6,7 @@
 /*   By: tiskow <tiskow@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 06:27:53 by tiskow            #+#    #+#             */
-/*   Updated: 2016/12/03 17:15:33 by tiskow           ###   ########.fr       */
+/*   Updated: 2016/12/05 06:54:14 by tiskow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ char	*ft_strtrim(char const *str)
 		st++;
 	while (str[end] == ' ' || str[end] == '\n' || str[end] == '\t')
 		end--;
-	return ((end <= st) ? ft_strnew(0) : ft_strsub(str, st, end - st + 1));
+	return ((end < st) ? ft_strnew(0) : ft_strsub(str, st, end - st + 1));
 }
