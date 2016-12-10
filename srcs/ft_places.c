@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdelchar.c                                    :+:      :+:    :+:   */
+/*   ft_places.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tiskow <tiskow@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/21 09:33:13 by tiskow            #+#    #+#             */
-/*   Updated: 2016/12/08 05:03:33 by tiskow           ###   ########.fr       */
+/*   Created: 2016/12/08 01:54:16 by tiskow            #+#    #+#             */
+/*   Updated: 2016/12/10 10:05:34 by tiskow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// More functions of string
-
 #include "../includes/fillit.h"
 
-char	*ft_strdelchar(char *str, char c)
+int		ft_lentetriminos(f_list *tetriminos)
 {
-	int		st;
-	int		end;
+	int i;
 
-	if (!str)
-		return (NULL);
-	st = 0;
-	end = ft_strlen((char *)str) - 1;
-	while (str[st] == c)
-		st++;
-	while (str[end] == c)
-		end--;
-	return ((end < st) ? ft_strnew(0) : ft_strsub(str, st, end - st + 1));
+	i = 0;
+	while (tetriminos)
+	{
+		i++;
+		tetriminos = tetriminos->next;
+	}
+	return (i * 4);
+}
+
+void	ft_places(f_list *tetriminos)
+{
+	int lentotal;
+
+	lentotal = ft_lentetriminos(tetriminos);
+	ft_putnbr(ft_msqrt(lentotal));
 }

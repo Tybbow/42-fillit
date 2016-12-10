@@ -6,7 +6,7 @@
 /*   By: tiskow <tiskow@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/29 11:32:35 by tiskow            #+#    #+#             */
-/*   Updated: 2016/12/07 07:22:58 by tiskow           ###   ########.fr       */
+/*   Updated: 2016/12/08 05:02:35 by tiskow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,22 +107,22 @@ f_list		*ft_newlist(char *file, size_t len)
 	f_list 	*newlist;
 	char	**darray;
 	char	tmp[16];
+	char	*tmp2;
 	int		i;
 
 	i = 0;
 	darray = ft_strsplit(file, '\n');
-	ft_strclr(tmp);	
 	newlist = NULL;
 	if (!len)
 		return (NULL);
 	while (darray[i])
 	{
 		ft_strcat(tmp, darray[i]);
-		i++;
-		if (i % len == 0)
+		if (++i % len == 0)
 		{
-			if (ft_bddalgo(ft_strchr(tmp, '#')))
-				newlist = ft_addlist(ft_strchr(tmp, '#'), ft_bddalgo(ft_strchr(tmp, '#')), newlist);
+			tmp2 = ft_strchr(tmp, '#');
+			if (ft_bddalgo(tmp2))
+				newlist = ft_addlist(ft_strdelchar(tmp2, '.'), ft_bddalgo(tmp2), newlist);
 			ft_strclr(tmp);
 		}
 	}

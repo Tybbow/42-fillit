@@ -6,7 +6,7 @@
 /*   By: tiskow <tiskow@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 05:02:46 by tiskow            #+#    #+#             */
-/*   Updated: 2016/12/07 07:23:14 by tiskow           ###   ########.fr       */
+/*   Updated: 2016/12/07 12:23:06 by tiskow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ int		main(int ac, char **ag)
 			tetriminos = ft_newlist(tmp, ft_parsefile(tmp, 4, 5, 0));
 			if (!tetriminos)
 				return (ft_error());
+			ft_places(tetriminos);
 			ft_displaylist(tetriminos);	
-			
 		}
 		else
 			return (ft_usage());
